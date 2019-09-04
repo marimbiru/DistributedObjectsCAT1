@@ -1,5 +1,6 @@
 package com.ics.demo.groupAspring.models;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="movies")
@@ -7,9 +8,11 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
+    @NotNull(groups = Update.class)
     private Long id;
 
     @Column(name = "name")
+    @NotNull(groups = Create.class)
     private String name;
 
     @Column(name = "year_released")

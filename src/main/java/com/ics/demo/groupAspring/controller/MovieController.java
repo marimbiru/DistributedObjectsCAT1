@@ -2,6 +2,7 @@ package com.ics.demo.groupAspring.controller;
 
 import com.ics.demo.groupAspring.models.Movie;
 import com.ics.demo.groupAspring.service.MovieService;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class MovieController {
     }
 
     @PostMapping
-    public Movie create(@RequestBody Movie movie){
+    public Movie create(@Validated({Movie.Create.class}) @RequestBody Movie movie){
         return movieService.create(movie);
     }
 
@@ -36,12 +37,12 @@ public class MovieController {
     }
 
     @PatchMapping
-    public Movie update(@RequestBody Movie movie){
+    public Movie update(@Validated({Movie.Update.class}) @RequestBody Movie movie){
         return movieService.update(movie);
     }
 
     @PatchMapping(value="{id}")
-    public Movie update(@PathVariable Long id, @RequestBody Movie movie){
+    public Movie update(@Validated({Movie.Update.class}) @PathVariable Long id, @RequestBody Movie movie){
         return movieService.update(id,movie);
     }
 }
