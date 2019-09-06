@@ -1,10 +1,11 @@
 package com.ics.demo.groupAspring.models;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name="movies")
+@Table(name = "movies")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,7 +23,8 @@ public class Movie {
     @Column(name = "year_released")
     private String yearReleased;
 
-    private Movie(){}
+    private Movie() {
+    }
 
     public Movie(String name, String year) {
         this.name = name;
@@ -45,14 +47,15 @@ public class Movie {
         this.name = name;
     }
 
-    public String getYear() {
-        return yearReleased;
-    }
+    public List<Actor> getActors() { return actors; }
 
-    public void setYear(String year) {
-        this.yearReleased = year;
-    }
+    public void setActors(List<Actor> actors) { this.actors = actors; }
 
-    public interface  Create{}
-    public interface  Update{}
+    public String getYearReleased() { return yearReleased; }
+
+    public void setYearReleased(String yearReleased) { this.yearReleased = yearReleased; }
+
+    public interface Create { }
+
+    public interface Update { }
 }

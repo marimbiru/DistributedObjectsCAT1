@@ -33,9 +33,7 @@ public class MovieController {
     }
 
     @DeleteMapping(value = "{id}")
-    public void delete(@PathVariable Long id) {
-        movieService.delete(id);
-    }
+    public void delete(@PathVariable Long id) { movieService.delete(id); }
 
     @PatchMapping
     public Movie update(@Validated({Movie.Update.class}) @RequestBody Movie movie) {

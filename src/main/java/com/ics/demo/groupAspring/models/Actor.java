@@ -24,14 +24,11 @@ public class Actor {
     @NotNull(groups = Actor.Create.class)
     private String gender;
 
-
-
     @ManyToOne
     @JoinColumn(name = "movie_id_fk")
     private Movie movie;
 
-    private Actor() {
-    }
+    private Actor() { }
 
     public Actor(String name, String gender, Movie movie) {
         this.name = name;
@@ -71,9 +68,7 @@ public class Actor {
         this.movie = movie;
     }
 
-    public interface Create {
-    }
+    public interface Create { }
 
-    public interface Update {
-    }
+    public interface Update { }
 }

@@ -38,7 +38,7 @@ import java.util.List;
     public Movie update(Movie movie) {
         Movie foundMovie = findById(movie.getId());
         foundMovie.setName(movie.getName());
-        foundMovie.setYear(movie.getYear());
+        foundMovie.setYearReleased(movie.getYearReleased());
         return movieRepository.save(foundMovie);
     }
 
@@ -46,7 +46,7 @@ import java.util.List;
     public Movie update(Long id, Movie movie) {
         Movie foundMovie = findById(id);
         foundMovie.setName(movie.getName());
-        foundMovie.setYear(movie.getYear());
+        foundMovie.setYearReleased(movie.getYearReleased());
         return movieRepository.save(foundMovie);
     }
 
