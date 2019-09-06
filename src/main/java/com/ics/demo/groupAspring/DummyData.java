@@ -21,15 +21,15 @@ public class DummyData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        ArrayList<Actor> actorList = new ArrayList<Actor>();
-        actorList.add(new Actor("Margot Robbie","female"));
-        actorList.add(new Actor("Will Smith", "male"));
+//        ArrayList<Actor> actorList = new ArrayList<Actor>();
+//        actorList.add(new Actor("Margot Robbie","female"));
+//        actorList.add(new Actor("Will Smith", "male"));
 
         ArrayList<Movie> movieList = new ArrayList<Movie>();
         movieList.add(new Movie("Fast and Slow", "1990"));
         movieList.add(new Movie("Slow and Fast", "1989"));
 
-        actorRepository.saveAll(actorList);
+//        actorRepository.saveAll(actorList);
         movieRepository.saveAll(movieList);
 
     }

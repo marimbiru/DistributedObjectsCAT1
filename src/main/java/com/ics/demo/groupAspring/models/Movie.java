@@ -1,6 +1,7 @@
 package com.ics.demo.groupAspring.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name="movies")
@@ -14,6 +15,9 @@ public class Movie {
     @Column(name = "name")
     @NotNull(groups = Create.class)
     private String name;
+
+    @OneToMany(mappedBy = "movie")
+    private List<Actor> actors;
 
     @Column(name = "year_released")
     private String yearReleased;

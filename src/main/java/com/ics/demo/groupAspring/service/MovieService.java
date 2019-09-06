@@ -1,5 +1,6 @@
 package com.ics.demo.groupAspring.service;
 
+import com.ics.demo.groupAspring.models.Actor;
 import com.ics.demo.groupAspring.models.Movie;
 
 import java.util.List;
@@ -11,4 +12,6 @@ public interface MovieService {
     Movie update (Movie movie);
     Movie update( Long id, Movie movie);
     void delete(Long id);
+
+    Actor createActor(Long id, Actor actor);
 }
