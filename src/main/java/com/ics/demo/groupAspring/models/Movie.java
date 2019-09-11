@@ -2,6 +2,7 @@ package com.ics.demo.groupAspring.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="movies")
@@ -16,8 +17,19 @@ public class Movie {
     @NotNull(groups = Create.class)
     private String name;
 
+    public List<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
+    }
+
     @OneToMany(mappedBy = "movie")
     private List<Actor> actors;
+
+    @ManyToMany(mappedBy = "movies")
+    private Set<Category> categories;
 
     @Column(name = "year_released")
     private String yearReleased;
@@ -27,6 +39,8 @@ public class Movie {
     public Movie(String name, String year) {
         this.name = name;
         this.yearReleased = year;
+//        this.categories.addAll((categories));
+//        this.categories = categories;
     }
 
     public Long getId() {

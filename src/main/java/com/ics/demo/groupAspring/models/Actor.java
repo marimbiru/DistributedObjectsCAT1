@@ -26,6 +26,7 @@ public class Actor {
 
 
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "movie_id_fk")
     private Movie movie;
