@@ -9,6 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 @Component
 public class DummyData implements CommandLineRunner {
@@ -31,13 +33,33 @@ public class DummyData implements CommandLineRunner {
 
         Category category = categoryRepository.save(new Category("Action"));
         Category category1 = categoryRepository.save(new Category("thriller"));
+        HashSet<Category> myCategories = new HashSet<Category>();
+        myCategories.add(category);
+        myCategories.add(category1);
 
-        ArrayList<Movie> movieList = new ArrayList<Movie>();
-        movieList.add(new Movie("Fast and Slow", "1990"));
-        movieList.add(new Movie("Slow and Fast", "1989"));
 
-//        actorRepository.saveAll(actorList);
-        movieRepository.saveAll(movieList);
+        Movie movie1 = new Movie("Fast and Slow", "1990" );
+        Movie movie2 = new Movie("Slow and Fast", "1989");
+        movie1.getCategories().add(category);
+        movie2.getCategories().add(category1);
+
+        category.getMovies().add(movie1);
+        category1.getMovies().add(movie2);
+
+        movieRepository.save(movie1);
+        categoryRepository.save(category);
+
+
+
+//        category.addMovies(movie1);
+//        category.addMovies(movie2);
+//        category1.addMovies(movie1);
+
+////        actorRepository.saveAll(actorList);
+//        movieRepository.save(movie1);
+//        movieRepository.save(movie2);
+//        categoryRepository.save(category);
+//        categoryRepository.save(category1);
 
     }
 }

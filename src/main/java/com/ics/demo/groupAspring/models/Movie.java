@@ -1,6 +1,7 @@
 package com.ics.demo.groupAspring.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -29,7 +30,7 @@ public class Movie {
     private List<Actor> actors;
 
     @ManyToMany(mappedBy = "movies")
-    private Set<Category> categories;
+    private Set<Category> categories = new HashSet<Category>();
 
     @Column(name = "year_released")
     private String yearReleased;
@@ -65,6 +66,27 @@ public class Movie {
 
     public void setYear(String year) {
         this.yearReleased = year;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", actors=" + actors +
+                ", categories=" + categories +
+                ", yearReleased='" + yearReleased + '\'' +
+                '}';
+
+
     }
 
     public interface  Create{}

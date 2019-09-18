@@ -17,13 +17,17 @@ public class Category {
     @ManyToMany
     @JoinTable(
             name = "category_movies",
-            joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "movie_id")
+            joinColumns = @JoinColumn(name = "category_id",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "movie_id",referencedColumnName = "id")
     )
     private Set<Movie> movies = new HashSet<>();
 
     public Category(String name) {
         this.name = name;
+    }
+
+    private Category(){
+
     }
 
     public Long getId() {
