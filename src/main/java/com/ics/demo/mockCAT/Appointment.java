@@ -1,20 +1,16 @@
 package com.ics.demo.mockCAT;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 public class Appointment {
     private Long appointmentId;
     private Long studentId;
-    private Long lecturerId;
+    private Long teacherId;
 
     public Appointment() {
     }
 
-    public Appointment(Long studentId, Long lecturerId) {
+    public Appointment(Long studentId, Long teacherId) {
         this.studentId = studentId;
-        this.lecturerId = lecturerId;
+        this.teacherId = teacherId;
     }
 
     public Long getStudentId() {
@@ -25,12 +21,12 @@ public class Appointment {
         this.studentId = studentId;
     }
 
-    public Long getLecturerId() {
-        return lecturerId;
+    public Long getTeacherId() {
+        return teacherId;
     }
 
-    public void setLecturerId(Long lecturerId) {
-        this.lecturerId = lecturerId;
+    public void setTeacherId(Long teacherId) {
+        this.teacherId = teacherId;
     }
 
     public Long getAppointmentId() {
