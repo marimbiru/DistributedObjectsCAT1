@@ -33,21 +33,19 @@ public class DummyData implements CommandLineRunner {
 
         Category category = categoryRepository.save(new Category("Action"));
         Category category1 = categoryRepository.save(new Category("thriller"));
-        HashSet<Category> myCategories = new HashSet<Category>();
-        myCategories.add(category);
-        myCategories.add(category1);
 
 
         Movie movie1 = new Movie("Fast and Slow", "1990" );
         Movie movie2 = new Movie("Slow and Fast", "1989");
-        movie1.getCategories().add(category);
-        movie2.getCategories().add(category1);
+        //movie1.getCategories().add(category);
+        //movie2.getCategories().add(category1);
 
-        category.getMovies().add(movie1);
-        category1.getMovies().add(movie2);
+        //category.getMovies().add(movie1);
+        //category1.getMovies().add(movie2);
 
         movieRepository.save(movie1);
-        categoryRepository.save(category);
+        movieRepository.save(movie2);
+        //categoryRepository.save(category);
 
 
 
